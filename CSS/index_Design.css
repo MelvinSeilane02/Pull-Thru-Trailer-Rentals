@@ -469,7 +469,7 @@ li {
   gap: calc(5 * var(--spacing-unit));
   overflow: hidden;
   border: rgb(0,0,0,0.1) 1px solid;
-  margin: calc(1 * var(--spacing-unit)) calc(7 * var(--spacing-unit));
+  margin: calc(7 * var(--spacing-unit)) calc(2 * var(--spacing-unit));
   border-radius: var(--spacing-unit);
 }
 
@@ -548,7 +548,7 @@ li {
   width: max-content;
   padding-block: calc(3 * var(--spacing-unit));
   padding-inline: calc(5 * var(--spacing-unit));
-  animation: infiniteScroll 20s ease-in-out infinite;
+  animation: infiniteScroll 50s ease-in-out infinite;
   align-items: center;
 }
 
@@ -891,10 +891,9 @@ li {
 }
 #about_us .header .title span {
   color: var(--yellow-accent);
-
   letter-spacing: 5px;
-
   font-weight: 700;
+  font-size: xx-large;
 }
 
 #about_us .header .caption {
@@ -917,7 +916,10 @@ li {
   align-items: center;
 }
 #about_us .header-logo img {
-}
+    filter: drop-shadow(0 -5px 4px rgba(255, 200, 0, 0.8)) /* soft yellow */
+    drop-shadow(0 10px 19px rgba(255, 140, 0, 0.5)) /* orange glow */
+    drop-shadow(0 4px 9px rgba(0, 0, 0, 0.4)); /* black depth */
+    }
 
 #about_us .body {
   grid-area: body;
@@ -931,12 +933,24 @@ li {
 
 #about_us .body .bullet-point {
   font-size: medium;
-
   letter-spacing: 2px;
-
   font-weight: 400;
+  line-height: calc(1.5 * var(--line-spacing));
 }
 #about_us .body .bullet-point::before {
+    content: "";
+    background: url(../images/icons/Indicators/car-and-camper-silhouette-fed530-xl-removebg-preview.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: calc(13 * var(--spacing-unit));
+    height: calc(5 * var(--spacing-unit));
+    display: inline-block;
+    position: relative;
+    top: calc(2 * var(--spacing-unit));
+    right: calc(-4 * var(--spacing-unit));
+    clip-path: inset(0 35px 0 0);
+    /* filter: drop-shadow( -6px -4px 19px rgb(0,0,0,0.5)); */
 }
 
 #about_us .body .bullet-point span {
@@ -962,7 +976,42 @@ li {
   border-radius: calc(2 * var(--spacing-unit));
   font-weight: 700;
   letter-spacing: 3px;
+  border:rgb(0,0,0,0.4) 3px solid;
+  transition: all ease 1s;
 }
 #about_us .footer .learn-more-btn:hover {
+  background-color:var(--secondary-color-light);
+  color:var(--secondary-color-dark);
+   filter: drop-shadow(0 0 4px rgba(255, 200, 0, 0.8)) /* soft yellow */
+    drop-shadow(0 0 19px rgba(255, 140, 0, 0.9)) /* orange glow */
+    drop-shadow(0 4px 9px rgba(0, 0, 0, 0.5)); /* black depth */
+  transform: scale(1.05);
+  box-shadow: inset rgb(0,0,0,0.5)  5px 2.5px 5px, inset rgb(0,0,0,0.6) -5px 0px 10px 0px
 }
+/************************************************/
+
+/**Contact Us Style**/
+#contact_us {}
+
+#contact_us .container {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "info-container header"
+    "activities message-container"
+    "buttons-container message-container";
+}
+
+#contact_us .info-container { grid-area: info-container; }
+
+#contact_us .header { grid-area: Header; }
+
+#contact_us .activities { grid-area: activities; }
+
+#contact_us .buttons-container { grid-area: buttons-container; }
+
+#contact_us .message-container { grid-area: message-container; }
+
 /************************************************/
